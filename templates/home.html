@@ -1,0 +1,19 @@
+{% extends 'dummy.html' %}
+
+{% block title %}
+    <title>Home Page</title>
+{% endblock %}
+
+{% block body_block %}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8 text-center">
+                {% if username %}
+                    <h1 class="display-4" style="color: navy;">Welcome to the Home Page, Mr/Ms {{ username }}</h1>
+                {% else %}
+                    <h1 class="display-4" style="color: navy;">Welcome to the Home Page</h1>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
