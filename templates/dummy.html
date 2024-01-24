@@ -22,9 +22,7 @@
             <div class="navbar-collapse justify-content-end">
               {% if user.is_authenticated %}
                 <a class="navbar-brand" href="{% url 'profile_display' %}">
-                <img src="{{ user.profile.profile_pic.url }}" alt="Profile Picture" class="rounded-circle" style="width: 30px; height: 30px; margin-right: 5px;">
-                Display Profile
-                </a>
+                <img src="{{ user.profile.profile_pic.url }}" alt="Profile Picture" class="rounded-circle" style="width: 30px; height: 30px; margin-right: 5px;">Profile</a>
                 <a class="navbar-brand" href="{% url 'user_logout' %}">Logout</a>
               {% else %}
                 <a class="navbar-brand" href="{% url 'user_login' %}">Login</a>
