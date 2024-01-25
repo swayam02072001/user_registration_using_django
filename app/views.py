@@ -6,8 +6,6 @@ from django.contrib.auth import authenticate,login, logout
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 
-
-# Create your views here.
 def registration(request):
     ufo=UserForm()
     pfo=ProfileForm()
@@ -73,3 +71,35 @@ def profile_display(request):
     d = {'UO':UO, 'PO':PO}
     
     return render(request, 'profile_display.html',d)
+
+@login_required
+def change_password(request):
+    if request.method=='POST':
+        pw=request.POST['pw']
+        username=request.session.get('username')
+        UO=User.objects.get(username=username)
+        UO.set_password(pw)
+        UO.save()
+        return HttpResponse('Password changed Successfully')
+    return render(request,'change_password.html')
+
+def forget_password(request):
+
+    if request.method=='POST':
+        un=request.POST['un']
+        pw=request.POST['pw']
+
+        LUO=User.objects.filter(username=un)
+
+        if LUO:
+            UO=LUO[0]
+            UO.set_password(pw)
+            UO.save()
+            return HttpResponse('Password Reset is Done')
+        else:
+            return HttpResponse('Invalid User')
+        
+
+        return HttpResponse('Reset password is done successfully')
+    return render(request,'forget_password.html')
+
