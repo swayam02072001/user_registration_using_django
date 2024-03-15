@@ -70,3 +70,11 @@ This project is a user registration system built using Django, a high-level Pyth
 - **Styling**: Modify the HTML/CSS files to customize the appearance of the registration form and user interface.
   
 - **Functionality**: Extend the Django user model or views to add additional fields or functionality to the registration process.
+## Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request with any improvements or additional features.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+---
